@@ -1,0 +1,71 @@
+<mat-accordion multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Weekly split</mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Coming soon...</p>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Sample placement ranking</mat-panel-title>
+      </mat-expansion-panel-header>
+  
+      <div class="control-row">
+        <mat-form-field appearance="outline" class="sort-select">
+          <mat-label>Sort by</mat-label>
+          <mat-select [(value)]="sortOption">
+            <mat-option value="best">Best rated</mat-option>
+            <mat-option value="worst">Worst rated</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- <button mat-stroked-button color="primary">
+          <mat-icon>file_download</mat-icon> Export
+        </button> -->
+      </div>
+  
+      <table mat-table [dataSource]="data" class="mat-elevation-z1 full-width">
+  
+        <ng-container matColumnDef="rank">
+          <th mat-header-cell *matHeaderCellDef>Rank</th>
+          <td mat-cell *matCellDef="let row">{{ row.rank }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="retailer">
+          <th mat-header-cell *matHeaderCellDef>Retailer</th>
+          <td mat-cell *matCellDef="let row">{{ row.retailer }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="pos">
+          <th mat-header-cell *matHeaderCellDef>Point of sale</th>
+          <td mat-cell *matCellDef="let row">{{ row.pos }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="percentage">
+          <th mat-header-cell *matHeaderCellDef>Percentage (%)</th>
+          <td mat-cell *matCellDef="let row">{{ row.percentage }}</td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+      </table>
+  
+      <div class="load-more">Load more</div>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Lineup sample placement ranking</mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Coming soon...</p>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Reports</mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Coming soon...</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  

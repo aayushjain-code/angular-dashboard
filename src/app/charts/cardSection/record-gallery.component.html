@@ -1,0 +1,24 @@
+<div class="gallery-header">
+    <span>Total number of records: {{ records.length }}</span>
+    <span>Selected: {{ selected.length }}</span>
+  
+    <div class="actions">
+      <button (click)="selectAll()">Select all</button>
+      <button (click)="unselectAll()">Unselect all</button>
+      <button (click)="exportSelected()" [disabled]="selected.length === 0">Export selected items</button>
+    </div>
+  </div>
+  
+  <div class="gallery-grid">
+    <div class="gallery-card" *ngFor="let record of records">
+      <img [src]="record.image" alt="Product Image" />
+      <div class="gallery-details">
+        <p><strong>Retailer:</strong> {{ record.retailer }}</p>
+        <p><strong>Point of sale:</strong> {{ record.pos }}</p>
+        <p><strong>Product (SKU):</strong> {{ record.product }}</p>
+        <p><strong>Date:</strong> {{ record.date }}</p>
+      </div>
+      <input type="checkbox" [(ngModel)]="record.selected" (change)="onToggle(record)" />
+    </div>
+  </div>
+  
